@@ -125,6 +125,29 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(() => {
     nextBtn.click();
   }, 5000);
+
+  // Mobile Nav Toggle
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const closeNav = document.querySelector('.close-nav');
+  const navHeader = document.querySelector('.nav-header');
+  const navOverlay = document.querySelector('.mobile-nav-overlay');
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      navHeader.classList.add('active');
+      navOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  const hideNav = () => {
+    navHeader.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  };
+
+  if (closeNav) closeNav.addEventListener('click', hideNav);
+  if (navOverlay) navOverlay.addEventListener('click', hideNav);
 });
 
 // Content-based slider logic

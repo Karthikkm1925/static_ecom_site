@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Collective | Homepage</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -105,15 +106,106 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  #search-box {
-    width: 180px;
-  }
-  .middle-header, .top-header {
-    flex-direction: column;
+@media (max-width: 991px) {
+  .top-header {
+    flex-wrap: wrap;
+    justify-content: center !important;
     text-align: center;
+    gap: 10px;
+  }
+  .top-msg {
+    order: -1;
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .social-icons {
+    display: none;
+  }
+  
+  .middle-header {
+    flex-direction: column;
+    padding: 15px !important;
+    gap: 15px;
+  }
+  .middle-header > div:first-child {
+    display: none;
+  }
+  .brand-logo img {
+    height: 35px;
+  }
+  
+  .nav-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #fff;
+    z-index: 1050;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+  .nav-header.active {
+    display: block;
+    left: 0;
+  }
+  .nav-header .nav {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .nav-header .nav-item {
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Hamburger Menu Toggle */
+  .mobile-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--deep-teal);
+    cursor: pointer;
+  }
+  
+  .carousel-slide img {
+    height: 350px !important;
+  }
+  .carousel-caption h1 {
+    font-size: 1.8rem;
+  }
+  .carousel-caption p {
+    font-size: 0.9rem;
   }
 }
+
+.mobile-toggle {
+  display: none;
+}
+
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+}
+.mobile-nav-overlay.active {
+  display: block;
+}
+
+.close-nav {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: var(--deep-teal);
+  cursor: pointer;
+}
+
 
     .slider-container {
       height: 500px;
@@ -578,8 +670,8 @@
   </div>
 </div>
 
-<!-- Middle Header -->
 <div class="middle-header d-flex justify-content-between align-items-center px-4">
+  <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
   <div><i class="fas fa-phone me-2"></i>+91 8310663174</div>
   <div class="text-center">
     <a href="#" class="brand-logo">
@@ -609,7 +701,9 @@
 </div>
 
 <!-- Navigation -->
+<div class="mobile-nav-overlay"></div>
 <nav class="nav-header">
+  <span class="close-nav">&times;</span>
   <div class="container">
     <ul class="nav justify-content-center">
       <li class="nav-item"><a class="nav-link" href="#">Home</a></li>

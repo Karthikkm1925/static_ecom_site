@@ -253,7 +253,32 @@
       0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
     }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+      .breadcrumb-nav span {
+        margin: 0 5px;
+        font-size: 0.9rem;
+      }
+      .container-box {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 20px;
+      }
+      .payment-methods, .method-forms {
+        width: 100%;
+      }
+      .method-option {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+      }
+    }
   </style>
+
 </head>
 <body>
   <div class="breadcrumb-nav">

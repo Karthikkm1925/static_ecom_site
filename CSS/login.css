@@ -136,3 +136,22 @@ button:hover{
     text-decoration: underline;
     color: #1845ad;
 }
+
+@media (max-width: 450px) {
+    .background {
+        display: none;
+    }
+    form {
+        width: 90%;
+        padding: 40px 20px;
+    }
+    form h3 {
+        font-size: 24px;
+    }
+    .social div {
+        width: 130px;
+    }
+    .social .fb {
+        margin-left: 10px;
+    }
+}
